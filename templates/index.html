@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Postlist</title>
+    <style>
+   .layer1 {
+    position: relative; /* Относительное позиционирование */
+    background: #f0f0f0; /* Цвет фона */
+    width: 400px
+   }
+   .layer2 {
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 15px; /* Положение от нижнего края */
+    right: 15px; /* Положение от правого края */
+    line-height: 1px;
+   }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Добавить пост</h2>
+    <form action="/index" method="post">
+    <input type="text" name="post_title" id="title" size=53 class="form-control" placeholder="Введите заголовок"><br>
+    <textarea name="post_text" id="text" cols=50 rows=5 class="form-control" placeholder="Введите текст"></textarea><br>
+    <input type="submit" class="btn btn-success" value="Отправить">
+    </form>
+
+    <div position = "relative">
+    <h2>Посты:</h2>
+    {% for el in posts %}
+    <div class="layer1">
+        <p> {{ el.post_date }} </p>
+        <h4> {{ el.post_title }} </h4>
+        <p> {{ el.post_text }} </p>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

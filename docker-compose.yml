@@ -1,0 +1,12 @@
+version: "3"
+services:
+    app:
+        build: .
+        environment: 
+            - Flask_APP=app.py
+        ports:
+            - '5000:5000'
+        entrypoint:
+            - flask
+            - run
+            - --host=0.0.0.0
